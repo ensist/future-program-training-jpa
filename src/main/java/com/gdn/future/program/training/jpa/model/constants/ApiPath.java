@@ -9,4 +9,7 @@ public class ApiPath {
 
   public static final String REVIEWER = API + "/reviewer";
   public static final String REVIEWER_BY_MOVIE_ID = REVIEWER + "/{reviewerId}";
+
+  public static final String RATING = API + "/rating";
+  public static final String RATING_BY_REVIEWER_ID_AND_MOVIE_ID = RATING + "/{reviewerId}/{movieId}";
 }

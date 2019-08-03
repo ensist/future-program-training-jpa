@@ -1,11 +1,16 @@
 package com.gdn.future.program.training.jpa.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gdn.future.program.training.jpa.model.constants.MovieConstant;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = MovieConstant.TABLE_NAME)
@@ -31,6 +36,18 @@ public class Movie extends BaseEntity {
 
   @Column(name = MovieConstant.MOVIE_RELEASE_COUNTRY)
   private String movieReleaseCountry;
+
+  @JsonIgnore
+  @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  private Set<Rating> ratings;
+
+  public Set<Rating> getRatings() {
+    return ratings;
+  }
+
+  public void setRatings(Set<Rating> ratings) {
+    this.ratings = ratings;
+  }
 
   public String getMovieId() {
     return movieId;

@@ -5,6 +5,7 @@ import com.gdn.future.program.training.jpa.model.entity.Movie;
 import com.gdn.future.program.training.jpa.service.MovieService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +22,11 @@ public class MovieController {
 
   @GetMapping(ApiPath.MOVIE_BY_MOVIE_ID)
   public Movie findByMovieId(@PathVariable String movieId) {
-    return movieService.findByMovieId(movieId);
+    return movieService.findByMovieIdOptimisticLocking(movieId);
   }
 
-  @PostMapping(ApiPath.MOVIE)
-  public Movie save(@RequestBody Movie movie) {
+  @PostMapping(value = ApiPath.MOVIE, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public Movie save(@RequestBody Movie movie) throws Exception {
     return movieService.save(movie);
   }
 
