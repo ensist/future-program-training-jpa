@@ -1,15 +1,15 @@
 package com.gdn.future.program.training.jpa.repository;
 
-import com.gdn.future.program.training.jpa.model.entity.Movie;
+import com.gdn.future.program.training.jpa.model.entity.Reviewer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, String> {
+public interface ReviewerRepository extends JpaRepository<Reviewer, String> {
 
-  Movie findFirstByMovieId(String movieId);
+  Reviewer findFirstByReviewerId(String reviewerId);
 
   @Transactional
-  long deleteByMovieId(String movieId);
+  long deleteByReviewerId(String reviewerId);
 }

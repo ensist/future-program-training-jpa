@@ -18,4 +18,8 @@ public class MovieService {
   public Movie save(Movie movie) {
     return movieRepository.save(movie);
   }
+
+  public long deleteByMovieId(String movieId) {
+    return movieRepository.deleteByMovieId(movieId);
+  }
 }
