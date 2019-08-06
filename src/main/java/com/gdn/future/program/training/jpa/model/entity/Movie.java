@@ -38,7 +38,8 @@ public class Movie extends BaseEntity {
   private String movieReleaseCountry;
 
   @JsonIgnore
-  @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "movie",
+      fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   private Set<Rating> ratings;
 
   public Set<Rating> getRatings() {

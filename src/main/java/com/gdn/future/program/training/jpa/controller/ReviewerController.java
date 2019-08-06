@@ -16,14 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(
+    produces = MediaType.APPLICATION_JSON_VALUE)
 public class ReviewerController {
 
   @Autowired
   private ReviewerService reviewerService;
 
   @GetMapping(ApiPath.REVIEWER_BY_MOVIE_ID)
-  public Reviewer findByReviewerId(@PathVariable String reviewerId) {
+  public Reviewer findByReviewerId(
+      @PathVariable String reviewerId) {
     return reviewerService.findByReviewerId(reviewerId);
   }
 
@@ -33,7 +35,8 @@ public class ReviewerController {
   }
 
   @DeleteMapping(ApiPath.REVIEWER_BY_MOVIE_ID)
-  public boolean deleteByReviewerId(@PathVariable String reviewerId) {
+  public boolean deleteByReviewerId(
+      @PathVariable String reviewerId) {
     return reviewerService.deleteByReviewerId(reviewerId) > 0;
   }
 }

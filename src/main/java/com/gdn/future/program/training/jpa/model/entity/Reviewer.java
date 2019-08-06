@@ -22,7 +22,7 @@ public class Reviewer extends BaseEntity {
   private String reviewerName;
 
   @JsonIgnore
-  @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "reviewer", fetch = FetchType.LAZY)
   private Set<Rating> ratings;
 
   public Set<Rating> getRatings() {

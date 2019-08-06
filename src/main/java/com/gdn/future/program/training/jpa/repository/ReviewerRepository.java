@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface ReviewerRepository extends JpaRepository<Reviewer, String> {
+public interface ReviewerRepository
+    extends JpaRepository<Reviewer, String> {
 
   Reviewer findFirstByReviewerId(String reviewerId);
 

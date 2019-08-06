@@ -6,10 +6,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface RatingRepository extends JpaRepository<Rating, String> {
+public interface RatingRepository
+    extends JpaRepository<Rating, String> {
 
-  Rating findFirstByReviewerIdAndMovieId(String reviewerId, String movieId);
+  Rating findFirstByReviewerIdAndMovieId(
+      String reviewerId, String movieId);
 
   @Transactional
-  long deleteByReviewerIdAndMovieId(String reviewerId, String movieId);
+  long deleteByReviewerIdAndMovieId(
+      String reviewerId, String movieId);
 }

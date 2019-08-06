@@ -22,7 +22,7 @@ public class MovieController {
 
   @GetMapping(ApiPath.MOVIE_BY_MOVIE_ID)
   public Movie findByMovieId(@PathVariable String movieId) {
-    return movieService.findByMovieIdOptimisticLocking(movieId);
+    return movieService.findByMovieId(movieId);
   }
 
   @PostMapping(value = ApiPath.MOVIE, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
